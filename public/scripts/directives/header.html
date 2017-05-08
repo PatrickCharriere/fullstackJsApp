@@ -1,0 +1,30 @@
+<md-toolbar>
+	<div flex-sm="100" flex-gt-sm="100" flex-gt-md="100" layout="column">
+		
+		<div layout="row">
+			<span flex>&nbsp;</span>
+		</div>
+
+		<div layout="row" layout-align="center end">
+			<div layout="row" flex flex-sm="100" flex-gt-sm="80" flex-gt-md="80"  class="brand-line">
+				<span class="brand_img_container"><img class="brand_img" src="images/Blazon_medium.png" alt=""/></span>
+				<div class="brand" flex-sm="100" flex-gt-sm="60">&nbsp;Patrick Charriere</div>
+				<span flex class="flex"></span>
+				<div flex="30" layout="row" layout-align="end center">
+					<md-button class="md-accent">Sign in</md-button>
+					<md-button>Sign up</md-button>
+				</div>
+			</div>
+		</div>
+
+		<div layout="row">
+			<span flex>&nbsp;</span>
+		</div>
+
+		<md-tabs flex flex-xs="100" flex-gt-xs="70" layout="column" layout-fill md-selected="selectedTab" class="md-hue-2 md-primary">
+			<md-tab ng-repeat="view in views" id="view.name" aria-controls="view.name" md-on-select="goto(view.name)">
+				<md-tab-label><span class="glyphicon {{view.glyph}}" aria-hidden="true"></span> <span hide-xs>{{view.name}}</span></md-tab-label>
+			</md-tab>
+		</md-tabs>
+	</div>
+</md-toolbar>

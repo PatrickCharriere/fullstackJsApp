@@ -1,0 +1,160 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;  
+}
+.brand-line{
+	line-height: 4em;
+}
+.brand{
+	text-align: left;
+	font-size: 2.5em;
+}
+md-pagination-wrapper {
+    width:auto !important;
+}
+.brand_img_container{
+	height: 80px;
+}
+.brand_img{
+	height: 100%;
+}
+/******* Calendar ******/
+.cl-page {
+	color: rgba(255,255,255,0.9);
+	line-height: 40px;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+	background: silver;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 1.5em;
+	/*background: -moz-linear-gradient(-45deg, #cebe29 0%, #9b1f50 33%, #2989d8 71%, #89b4ff 91%);*/
+	/*background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#cebe29), color-stop(33%,#9b1f50), color-stop(71%,#2989d8), color-stop(91%,#89b4ff));*/
+	/*background: -webkit-linear-gradient(-45deg, #cebe29 0%,#9b1f50 33%,#2989d8 71%,#89b4ff 91%);*/
+	/*background: -o-linear-gradient(-45deg, #cebe29 0%,#9b1f50 33%,#2989d8 71%,#89b4ff 91%);*/
+	/*background: -ms-linear-gradient(-45deg, #cebe29 0%,#9b1f50 33%,#2989d8 71%,#89b4ff 91%);*/
+	/*background: linear-gradient(135deg, #cebe29 0%,#9b1f50 33%,#2989d8 71%,#89b4ff 91%);*/
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cebe29', endColorstr='#89b4ff',GradientType=1 );*/
+	-webkit-background-size: 100% 100%;
+	-moz-background-size: 100% 100%;
+	background-size: 100% 100%;
+	overflow: auto;
+	padding-top: 1px;
+	margin-top: -1px;
+}
+.cl-form-container{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	position: relative;
+	width: 96%;
+	left: 2%;
+	left: 20px;
+	right: 20px;
+	height: 40px;
+	text-align: center;
+}
+.cl-form-container .cl-form .cl-row > div{
+	float: left;
+}
+.cl-form-container .cl-form .cl-row > div > div{
+	float: left;
+}
+.cl-container{
+	margin-top: 10px;
+	position: relative;
+	height: 500px;
+	width: 96%;
+	left: 2%;
+}
+.cl-calendar{
+	width: auto;
+	top: 10px;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	height: auto;
+	/*border-radius: 10px;*/
+	position: absolute;
+	background: rgba(255,255,255,0.1);
+}
+.cl-calendar .cl-head{
+	background: rgba(255,255,255,0.2);
+	box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+	/*border-radius: 10px 10px 0 0;*/
+	height: 40px;
+	padding: 0 20px;
+}
+.cl-calendar .cl-head > div{
+	font-size: 0.6em;
+	letter-spacing: 2px;
+	text-align: center;
+	float: left;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.cl-calendar .cl-body{
+	position: relative;
+	border: none;
+	padding: 10px;
+	width: 100%;
+	height: 100%;
+	height: -moz-calc(100% - 40px);
+	height: -webkit-calc(100% - 40px);
+	height: calc(100% - 40px);
+}
+.cl-column-seventh{
+	width: -moz-calc(100%/7);
+	width: -webkit-calc(100%/7);
+	width: calc(100%/7);
+	/*-webkit-transition: 1s linear all;
+	transition: 1s linear all;*/
+}
+.cl-column-fifth{
+	width: -moz-calc(100%/5);
+	width: -webkit-calc(100%/5);
+	width: calc(100%/5);
+	/*-webkit-transition: 1s linear all;
+	transition: 1s linear all;*/
+}
+.cl-calendar .cl-today{
+	background: transparent;
+    box-shadow: inset 0 0 100px rgba(255,255,255,0.1);
+}
+.cl-calendar .cl-row{
+	border: none;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+.cl-calendar .cl-row > div:last-child, .cl-calendar .cl-head > div:last-child {
+	border-right: none;
+}
+.cl-calendar .cl-row > div{
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	border-right: 1px solid #bbb;
+	padding: 4px;
+	overflow: hidden;
+	position: relative;
+	float: left;
+	height: 100%;
+}
+.cl-number-weekdays{
+	text-align: center;
+	outline: none;
+}
+
+/******* Footer ********/
+.footer a{
+	text-align: center;
+}
+
+

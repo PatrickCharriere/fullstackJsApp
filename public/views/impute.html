@@ -1,0 +1,104 @@
+
+
+
+
+<md-tabs md-dynamic-height md-border-bottom>
+	<md-tab label="Form">
+		<md-content class="md-padding">
+			<h1 class="md-display-2">Add imputation</h1>
+			
+
+			<md-content layout-padding>
+				<div>
+					<form name="userForm">
+						<div layout-gt-xs="row">
+							<md-input-container class="md-block" flex-gt-xs>
+								<label>Company</label>
+								<input ng-model="imputation.company">
+							</md-input-container>
+							<md-input-container>
+								<label>Enter date</label>
+								<md-datepicker ng-model="imputation.date"></md-datepicker>
+							</md-input-container>
+						</div>
+						<div layout-xs="column" layout-gt-xs="row">
+							<md-input-container class="md-block" flex-xs="100" flex-gt-xs="50">
+								<label>Category</label>
+								<input ng-model="imputation.category">
+							</md-input-container>
+							<div layout="row" flex-xs="100" flex-gt-xs="50">
+								<md-input-container class="md-block" flex="50">
+									<label>From</label>
+									<input type="time" ng-model="imputation.beginTime" md-placeholder="HH:mm">
+								</md-input-container>
+								<md-input-container class="md-block" flex="50">
+									<label>To</label>
+									<input type="time" md-placeholder="HH:mm" ng-model="imputation.endTime">
+								</md-input-container>
+							</div>
+						</div>
+						<div layout-gt-xs="row">
+							<md-input-container class="md-block" flex-xs="100" flex-gt-xs="50">
+								<label>Client</label>
+								<input ng-model="imputation.client">
+							</md-input-container>
+							<md-input-container class="md-block" flex-xs="100" flex-gt-xs="50">
+								<label>Mission</label>
+								<input ng-model="imputation.mission">
+							</md-input-container>
+						</div>
+						<div layout-gt-xs="row">
+							<md-input-container class="md-block" flex-xs="100" flex-gt-xs="100">
+								<label>Description</label>
+								<textarea ng-model="imputation.description"></textarea>
+							</md-input-container>
+						</div>
+						<md-card-actions layout="row" layout-align="end center">
+							<md-button class="md-primary">Reset</md-button>
+							<md-button class="md-primary md-raised">Submit</md-button>
+						</md-card-actions>
+					</form>
+				</div>
+			</md-content>
+
+
+
+		</md-content>
+	</md-tab>
+	<md-tab label="Calendar">
+		<md-content class="md-padding">
+			<h1 class="md-display-2">Add imputation</h1>
+			
+			<div class='cl-page' ng-cloak>
+				<div class="cl-form-container">
+					<div class="cl-form">
+						<div class="row">
+							<div class="col-xs-offset-3 col-xs-6">
+								<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{beginWeekDayNumber}} - {{endWeekDayNumber}} {{months[month]}} {{year}}
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="cl-container">
+					<div class="cl-calendar">
+						<div class="cl-head">
+							<div class="cl-column-seventh" ng-repeat="day in weekDays">{{day}}</div>
+						</div>
+						<div class="cl-body">
+							<div class="cl-row" ng-click="addImputation()">
+								<div class="cl-column-seventh" ng-repeat="day in weekDays"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row cl-number-weekdays">
+					<div class="col-xs-offset-9 col-xs-2" ng-click="toggleNumberOfDaysInWeek()">
+						{{numberOfDaysInWeek}} Days
+					</div>
+				</div>
+			</div>
+		</md-content>
+	</md-tab>
+</md-tabs>
