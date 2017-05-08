@@ -5,8 +5,7 @@ const MongoClient = require('mongodb').MongoClient
 const app = express();
 
 app.use(bodyParser.urlencoded({extended: true}))
-
-
+app.use(express.static(__dirname + "/public"));
 
 MongoClient.connect('mongodb://kitepat:kitepat@ds129651.mlab.com:29651/kitepat', (err, database) => {
 	if (err) return console.log(err)
@@ -29,6 +28,6 @@ app.post('/quotes', (req, res) => {
 	db.collection('quotes').save(req.body, (err, result) => {
 		if (err) return console.log(err)
 		console.log('saved to database')
-		res.redirect('/public/index.html')
+		res.redirect('/')
 	})
 })
