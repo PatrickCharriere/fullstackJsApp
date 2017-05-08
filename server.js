@@ -4,8 +4,8 @@ const bodyParser= require('body-parser')
 const MongoClient = require('mongodb').MongoClient
 const app = express();
 
-app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(__dirname + "/public"));
+app.use(bodyParser.urlencoded({extended: true}))
 
 MongoClient.connect('mongodb://kitepat:kitepat@ds129651.mlab.com:29651/kitepat', (err, database) => {
 	if (err) return console.log(err)
@@ -15,12 +15,14 @@ MongoClient.connect('mongodb://kitepat:kitepat@ds129651.mlab.com:29651/kitepat',
 	})
 })
 
-app.get('/', (req, res) => {
+app.get('/getMongoData', (req, res, next) => {
+	console.log('SERVER REQUESTED')
 	var cursor = db.collection('quotes').find().toArray(function(err, results) {
 		console.log(results)
+		var DataFromMongo = results;
 		// send HTML file populated with quotes here
+		res.send(DataFromMongo);
 	})
-	res.sendFile(__dirname + '/public/index.html')
 })
 
 
