@@ -9,7 +9,5 @@
  */
 angular.module('fullstackJsApp')
 .controller('SettingsCtrl', ['$scope', '$http', function($scope, $http) {
-	$scope.createPost=function(post){
-		$http.post('/api/savePost', post)
-	}
+	
 }]);

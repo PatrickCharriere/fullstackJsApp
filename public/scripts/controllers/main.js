@@ -16,21 +16,6 @@ angular.module('fullstackJsApp')
 			safeApply($scope);
 		}
 
-		$scope.action1=function(){
-			var remote;
-
-			$.ajax({
-				type: "GET",
-				url: "/getMongoData",
-				async: false,
-				success : function(data) {
-					remote = data;
-				}
-			});
-
-			console.log(remote)
-		}
-
 		$scope.init=function() {
 			
 		}
