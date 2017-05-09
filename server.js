@@ -14,27 +14,19 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 
-app.get('/getMongoData', (req, res, next) => {
-	var cursor = db.collection('quotes').find().toArray(function(err, results) {
+app.get('/api/getPosts', (req, res, next) => {
+	var cursor = db.collection('posts').find().toArray(function(err, results) {
 		var DataFromMongo = results;
 		res.send(DataFromMongo);
 	})
 })
 
-app.post('/quotes', (req, res) => {
-	db.collection('quotes').save(req.body, (err, result) => {
-		if (err) return console.log(err)
-		console.log('saved to database')
-		res.redirect('/')
-	})
-})
-	
 app.post('/api/savePost', (req, res) => {
-	console.log(req.body)
 	db.collection('posts').save(req.body, (err, result) => {
 		if (err) return console.log(err)
 		console.log('Write in database')
-		res.redirect('/')
+		//res.redirect('/')
+		res.json(req.body)
 	})
 })
 
