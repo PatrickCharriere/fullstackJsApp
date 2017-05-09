@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name fullstackJsApp.controller:SettingsCtrl
+ * @name fullstackJsApp.controller:BlogCtrl
  * @description
- * # SettingsCtrl
+ * # BlogCtrl
  * Controller of the fullstackJsApp
  */
 angular.module('fullstackJsApp')
-.controller('SettingsCtrl', function () {
+.controller('BlogCtrl', function () {
 	
 });

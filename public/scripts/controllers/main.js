@@ -2,12 +2,12 @@
 
 /**
 * @ngdoc function
-* @name imputationApp.controller:MainCtrl
+* @name fullstackJsApp.controller:MainCtrl
 * @description
 * # MainCtrl
-* Controller of the imputationApp
+* Controller of the fullstackJsApp
 */
-angular.module('imputationApp')
+angular.module('fullstackJsApp')
 .controller('MainCtrl', ['$scope','$location','safeApply',
 	function($scope, $location,safeApply) {
 

@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc overview
- * @name imputationApp
+ * @name fullstackJsApp
  * @description
- * # imputationApp
+ * # fullstackJsApp
  *
  * Main module of the application.
  */
-var angularApp = angular.module('imputationApp', [
+var angularApp = angular.module('fullstackJsApp', [
 	'ngRoute', 'ngMaterial', 'ngMessages'
 ]);
 
@@ -80,6 +80,11 @@ angularApp.config(function ($routeProvider,$mdThemingProvider,$mdDateLocaleProvi
 		controller: 'MainCtrl',
 		controllerAs: 'main'
 	})
+	.when('/blog', {
+		templateUrl: 'views/blog.html',
+		controller: 'BlogCtrl',
+		controllerAs: 'blog'
+	})
 	.when('/applications', {
 		templateUrl: 'views/impute.html',
 		controller: 'ImputeCtrl',
@@ -99,6 +104,11 @@ angularApp.config(function ($routeProvider,$mdThemingProvider,$mdDateLocaleProvi
 		templateUrl: 'views/about.html',
 		controller: 'AboutCtrl',
 		controllerAs: 'about'
+	})
+	.when('/404', {
+		templateUrl: '404.html',
+		controller: 'noFoundCtrl',
+		controllerAs: 'notFound'
 	})
 	.otherwise({
 		redirectTo: '/home'

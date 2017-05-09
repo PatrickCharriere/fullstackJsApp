@@ -2,27 +2,17 @@
 
 /**
  * @ngdoc function
- * @name imputationApp.controller:ImputeCtrl
+ * @name fullstackJsApp.controller:ImputeCtrl
  * @description
  * # ImputeCtrl
- * Controller of the imputationApp
+ * Controller of the fullstackJsApp
  */
-angular.module('imputationApp')
+angular.module('fullstackJsApp')
 	.controller('ImputeCtrl', ['$scope','$timeout','safeApply',
 		function($scope,$timeout,safeApply) {
 	$scope.months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
 	$scope.fullMonths=['January','February','March','April','May','June','July','August','September','Octocber','November','December'];
-	$scope.companyList=[{
-		name:"Ingenico",
-		BU: {
-			name:"Professional Services"
-		}
-	},{
-		name:"Astek",
-		BU: {
-			name:""
-		}
-	}];
+	$scope.companyList=[];
 	$scope.imputation={
 		company: "",
 		date: "",

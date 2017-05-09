@@ -8,8 +8,10 @@ const app = express();
 var dbConfig = require('./config/db');
 // set our port
 var port = process.env.PORT || 3000;
-
+//Set up our front end directory
 app.use(express.static(__dirname + "/public"));
+
+
 app.use(bodyParser.urlencoded({extended: true}))
 
 MongoClient.connect(dbConfig.url, (err, database) => {

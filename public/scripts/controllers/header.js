@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name imputationApp.controller:HeaderCtrl
+ * @name fullstackJsApp.controller:HeaderCtrl
  * @description
  * # HeaderCtrl
- * Controller of the imputationApp
+ * Controller of the fullstackJsApp
  */
-angular.module('imputationApp')
+angular.module('fullstackJsApp')
 .controller('HeaderCtrl', ['$scope', '$location', '$timeout','$log','safeApply',
 	function ($scope, $location, $timeout,$log,safeApply) {
 		$scope.selectedTab = null;
@@ -18,14 +18,9 @@ angular.module('imputationApp')
 				id: 0,
 				active: false
 			}, {
-				name: "Applications",
-				glyph: "glyphicon-calendar",
-				id: 1,
-				active: false
-			}, {
-				name: "Dashboard",
-				glyph: "glyphicon-dashboard",
-				id: 2,
+				name: "Blog",
+				glyph: "glyphicon-list",
+				id: 4,
 				active: false
 			}, {
 				name: "Settings",

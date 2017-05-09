@@ -2,16 +2,12 @@
 
 /**
  * @ngdoc function
- * @name imputationApp.controller:AboutCtrl
+ * @name fullstackJsApp.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the imputationApp
+ * Controller of the fullstackJsApp
  */
-angular.module('imputationApp')
-  .controller('AboutCtrl', function () {
-    this.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('fullstackJsApp')
+.controller('AboutCtrl', function () {
+	
+});

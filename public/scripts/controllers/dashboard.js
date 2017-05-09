@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name imputationApp.controller:DashboardCtrl
+ * @name fullstackJsApp.controller:DashboardCtrl
  * @description
  * # DashboardCtrl
- * Controller of the imputationApp
+ * Controller of the fullstackJsApp
  */
-angular.module('imputationApp')
-  .controller('DashboardCtrl', function () {
-    
-  });
+angular.module('fullstackJsApp')
+.controller('DashboardCtrl', function () {
+	
+});
