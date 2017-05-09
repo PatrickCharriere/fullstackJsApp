@@ -18,14 +18,23 @@ angular.module('fullstackJsApp')
 		$http
 		.get('/api/blogpost')
 		.then(function(posts){
-			$scope.posts=posts;
+			$scope.posts=posts.data;
 		})
 	}
 
 	$scope.createPost=function(post){
-		$http.post('/api/blogpost', post)
+		$http
+		.post('/api/blogpost', post)
 		.then(function(postRes){
-			$scope.posts=postRes;
+			$scope.posts=postRes.data;
+		})
+	}
+
+	$scope.deletePost=function(postId){
+		$http
+		.delete("/api/blogpost/"+postId)
+		.then(function(ret){
+			$scope.loadPosts();
 		})
 	}
 
