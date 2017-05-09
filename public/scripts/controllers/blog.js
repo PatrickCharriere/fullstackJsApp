@@ -24,6 +24,9 @@ angular.module('fullstackJsApp')
 
 	$scope.createPost=function(post){
 		$http.post('/api/blogpost', post)
+		.then(function(postRes){
+			$scope.posts=postRes;
+		})
 	}
 
 	init();

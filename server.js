@@ -42,7 +42,7 @@ app.post('/api/blogpost', (req, res) => {
 	.create(post)
 	.then(
 		function(postObj){
-			res.json(200)
+			res.json(postObj)
 		},
 		function(error){
 			res.sendStatus(400)
