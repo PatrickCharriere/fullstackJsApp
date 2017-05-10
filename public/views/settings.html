@@ -1,12 +1,2 @@
 <h1>This is the settings view</h1>
-<span>Create your blog posts from here</span>
 
-<div>
-	<md-content ng-controller="BlogCtrl" layout="column" layout-padding>
-		<input ng-model="post.title" class="form-control" placeholder="Title"/><br/>
-		<textarea ng-model="post.body" class="form-control" placeholder="Content"></textarea><br/>
-		<md-card-actions layout="row" layout-align="end center">
-			<md-button ng-click="createPost(post)" class="md-primary md-raised">Create</md-button>
-		</md-card-actions>
-	</md-content>
-</div>

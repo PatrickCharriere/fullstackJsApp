@@ -9,7 +9,10 @@
  */
 angular.module('fullstackJsApp')
 .controller('BlogCtrl', ['$scope', '$http', function($scope, $http) {
-	
+	$scope.searchInProgress=false
+	$scope.showEditArea=false
+	$scope.month = new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Nov","Dec")
+
 	function init(){
 		$scope.loadPosts();
 	}
@@ -19,14 +22,50 @@ angular.module('fullstackJsApp')
 		.get('/api/blogpost')
 		.then(function(posts){
 			$scope.posts=posts.data;
+			$scope.posts.sort(function(a, b) {
+				return b.posted - a.posted;
+			});
+			$scope.posts.forEach(function(el){
+				var itsDate = new Date(el.posted)
+				var date = itsDate.getDate()
+				var hours = itsDate.getHours()
+				hours = (hours<10)?'0'+hours:hours
+				var minutes = itsDate.getMinutes()
+				minutes = (minutes<10)?'0'+minutes:minutes
+				var numeral='th'
+				if((1==date)||(21==date))
+					numeral='st'
+				if((2==date)||(22==date))
+					numeral='nd'
+				if((3==date)||(23==date))
+					numeral='rd'
+
+				el.formattedDate = $scope.month[itsDate.getMonth()]+' the '+date+numeral+' of '+itsDate.getFullYear()
+					+' - '+hours+'h'+minutes;
+			})
 		})
 	}
 
 	$scope.createPost=function(post){
+		$scope.searchInProgress=true
 		$http
 		.post('/api/blogpost', post)
+		.then(function(){
+			$scope.post={}
+			console.log($scope.post)
+			$scope.loadPosts()
+			$scope.searchInProgress=false
+		})
+		.finally(function(err){
+			$scope.searchInProgress=false
+		})
+	}
+
+	$scope.editPost=function(postId){
+		$http
+		.get('/api/blogpost/' + postId)
 		.then(function(postRes){
-			$scope.posts=postRes.data;
+			
 		})
 	}
 

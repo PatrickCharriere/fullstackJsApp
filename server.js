@@ -12,7 +12,7 @@ var PostSchema = mongoose.Schema({
 	title: { type: String, required: true },
 	body: { type: String, required: true },
 	tag: { type: String, enum: ['ListAllTagAccteptedHere','POLITICS','ECONOMY','ETC']},
-	posted: {type: Date,default: Date.now},
+	posted: {type: Number,default: Date.now},
 }, {collection: 'post'});
 var PostModel = mongoose.model("PostModel", PostSchema);
 
@@ -23,8 +23,9 @@ app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
+app.get('/api/blogpost/:id', getPostById);
 
-app.get('/api/blogpost', (req, res, next) => {
+app.get('/api/blogpost', (req, res) => {
 	PostModel
 	.find()
 	.then(function(posts){
@@ -35,14 +36,30 @@ app.get('/api/blogpost', (req, res, next) => {
 	})
 })
 
+function getPostById(req, res) {
+	var postId = req.params.id;
+	PostModel
+	.find({
+		_id: postId
+	})
+	.then(function(posts){
+		res.json(posts);
+	}, function(err){
+		res.sendStatus(400);
+
+	})
+}
+
 app.post('/api/blogpost', (req, res) => {
 	var post = req.body
+	post.posted = Date.now()
+	console.log(Date.now())
 	console.log(post)
 	PostModel
 	.create(post)
 	.then(
 		function(postObj){
-			res.json(postObj)
+			res.sendStatus(200)
 		},
 		function(error){
 			res.sendStatus(400)
