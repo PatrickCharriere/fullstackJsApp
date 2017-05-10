@@ -56,7 +56,8 @@ angular.module('fullstackJsApp')
 			$scope.loadPosts()
 			$scope.searchInProgress=false
 		})
-		.finally(function(err){
+		.finally(function(){
+			$scope.showEditArea=false
 			$scope.searchInProgress=false
 		})
 	}
@@ -65,7 +66,20 @@ angular.module('fullstackJsApp')
 		$http
 		.get('/api/blogpost/' + postId)
 		.then(function(postRes){
-			
+			$scope.post=postRes.data
+			$scope.showEditArea=true
+		})
+	}
+
+	$scope.updatePost=function(post){
+		$scope.searchInProgress=true
+		$http
+		.put('/api/blogpost/' + post._id, post)
+		.then(function(postRes){
+			$scope.post={}
+			$scope.showEditArea=false
+			$scope.loadPosts()
+			$scope.searchInProgress=false
 		})
 	}
 

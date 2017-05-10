@@ -24,8 +24,12 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/api/blogpost/:id', getPostById);
+app.get('/api/blogpost', getAllPosts);
+app.post('/api/blogpost', createPost);
+app.put('/api/blogpost/:id', updatePost);
+app.delete('/api/blogpost/:id', deletePost);
 
-app.get('/api/blogpost', (req, res) => {
+function getAllPosts(req, res) {
 	PostModel
 	.find()
 	.then(function(posts){
@@ -34,27 +38,21 @@ app.get('/api/blogpost', (req, res) => {
 		res.sendStatus(400);
 
 	})
-})
-
+}
 function getPostById(req, res) {
 	var postId = req.params.id;
 	PostModel
-	.find({
-		_id: postId
-	})
-	.then(function(posts){
-		res.json(posts);
+	.find({_id: postId})
+	.then(function(post){
+		res.json(post[0]);
 	}, function(err){
 		res.sendStatus(400);
 
 	})
 }
-
-app.post('/api/blogpost', (req, res) => {
+function createPost(req, res) {
 	var post = req.body
 	post.posted = Date.now()
-	console.log(Date.now())
-	console.log(post)
 	PostModel
 	.create(post)
 	.then(
@@ -65,9 +63,25 @@ app.post('/api/blogpost', (req, res) => {
 			res.sendStatus(400)
 		}
 	);
-})
-
-app.delete('/api/blogpost/:id', (req, res) => {
+}
+function updatePost(req, res) {
+	var postId = req.params.id
+	var post = req.body
+	PostModel 
+	.update ({_id: postId}, {
+		title: post.title,
+		body: post.body
+	})
+	.then(
+		function(postObj){
+			res.sendStatus(200)
+		},
+		function(error){
+			res.sendStatus(400)
+		}
+	);
+}
+function deletePost(req, res) {
 	var postId=req.params.id;
 	PostModel
 	.remove({_id:postId})
@@ -79,7 +93,7 @@ app.delete('/api/blogpost/:id', (req, res) => {
 			res.sendStatus(400)
 		}
 	)
-})
+}
 
 app.listen(port, function() {
 	console.log('listening on '+port)	
