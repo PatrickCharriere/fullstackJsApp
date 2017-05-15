@@ -1,6 +1,9 @@
 html, body {
 	margin: 0;
 	padding: 0;
+	-webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+	font-family: "Helvetica Neue",helvetica,Arial,sans-serif;
 }
 
 body {
@@ -25,6 +28,44 @@ md-pagination-wrapper {
 .brand_img{
 	height: 100%;
 }
+
+
+/**** BLOG POST *****/
+ul, li, a {
+    vertical-align: baseline;
+}
+#post-list{
+	margin-top: 20px;
+	-webkit-transition: all .15s ease;
+    -moz-transition: all .15s ease;
+    -ms-transition: all .15s ease;
+    -o-transition: all .15s ease;
+    transition: all .15s ease;
+}
+#post-list li{
+	cursor: pointer;
+	border-bottom: 1px solid rgba(200,200,200,0.3);
+    list-style-type: none;
+    padding: 15px 0;
+}
+#post-list a:hover{
+	text-decoration: none;
+    color: #5694f1;
+}
+#post-list a{
+	color: #333;
+    display: block;
+    font: bold 19px/1.7 "Helvetica Neue",helvetica,Arial,sans-serif;
+}
+#post-list .dates {
+    float: right;
+    position: relative;
+    top: 1px;
+    font: 300 17px/1.8 "Helvetica Neue",helvetica,Arial,sans-serif;
+    color: #bbb;
+}
+
+
 /******* Calendar ******/
 .cl-page {
 	color: rgba(255,255,255,0.9);

@@ -105,6 +105,11 @@ angularApp.config(function ($routeProvider,$mdThemingProvider,$mdDateLocaleProvi
 		controller: 'AboutCtrl',
 		controllerAs: 'about'
 	})
+	.when('/article', {
+		templateUrl: 'article.html',
+		controller: 'ArticleCtrl',
+		controllerAs: 'article'
+	})
 	.when('/404', {
 		templateUrl: '404.html',
 		controller: 'noFoundCtrl',

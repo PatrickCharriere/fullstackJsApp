@@ -32,16 +32,8 @@ angular.module('fullstackJsApp')
 				hours = (hours<10)?'0'+hours:hours
 				var minutes = itsDate.getMinutes()
 				minutes = (minutes<10)?'0'+minutes:minutes
-				var numeral='th'
-				if((1==date)||(21==date))
-					numeral='st'
-				if((2==date)||(22==date))
-					numeral='nd'
-				if((3==date)||(23==date))
-					numeral='rd'
 
-				el.formattedDate = $scope.month[itsDate.getMonth()]+' the '+date+numeral+' of '+itsDate.getFullYear()
-					+' - '+hours+'h'+minutes;
+				el.formattedDate = date+' '+$scope.month[itsDate.getMonth()]+' '+itsDate.getFullYear();
 			})
 		})
 	}
