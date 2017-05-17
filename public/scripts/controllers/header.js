@@ -10,7 +10,7 @@
 angular.module('fullstackJsApp')
 .controller('HeaderCtrl', ['$scope', '$location', '$timeout','$log','safeApply',
 	function ($scope, $location, $timeout,$log,safeApply) {
-		$scope.selectedTab = null;
+		$scope.selectedTab = null
 
 		$scope.views = [ {
 				name: "Home",

@@ -5,15 +5,22 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
+    "bcrypt": "^1.0.2",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
+    "express-session": "^1.15.2",
+    "jwt-simple": "^0.5.1",
     "mongodb": "^2.2.26",
-    "mongoose": "^4.9.8"
+    "mongoose": "^4.9.8",
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server/server.js"
   }
 }

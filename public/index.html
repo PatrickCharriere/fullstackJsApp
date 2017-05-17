@@ -22,8 +22,8 @@
 			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 		<![endif]-->
 		
-		<div ng-controller="HeaderCtrl" layout="column" layout-fill="layout-fill">
-			<div header></div>
+		<div layout="column" layout-fill="layout-fill">
+			<div header ng-controller="HeaderCtrl"></div>
 
 			<md-content layout="column" flex="flex">
 				<div layout="column" flex="flex">
@@ -66,6 +66,7 @@
 
 		<!-- build:js({.tmp,app}) scripts/scripts.js -->
 		<script src="scripts/app.js"></script>
+		<script src="scripts/services.js"></script>
 		<script src="scripts/controllers/main.js"></script>
 		<script src="scripts/controllers/header.js"></script>
 		<script src="scripts/controllers/impute.js"></script>
@@ -73,7 +74,8 @@
 		<script src="scripts/controllers/settings.js"></script>
 		<script src="scripts/controllers/about.js"></script>
 		<script src="scripts/controllers/blog.js"></script>
-<script src="scripts/controllers/article.js"></script>
+		<script src="scripts/controllers/article.js"></script>
+		<script src="scripts/controllers/authentication.js"></script>
 		<!-- endbuild -->
 	</body>
 </html>

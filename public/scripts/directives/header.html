@@ -10,10 +10,15 @@
 				<span class="brand_img_container"><img class="brand_img" src="images/Blazon_medium.png" alt=""/></span>
 				<div class="brand" flex-sm="100" flex-gt-sm="60">&nbsp;kitepat.io</div>
 				<span flex class="flex"></span>
-				<div flex="30" layout="row" layout-align="end center">
-					<md-button class="md-accent">Sign in</md-button>
-					<md-button>Sign up</md-button>
-				</div>
+				<span ng-controller="AuthenticationCtrl" flex="30" layout="row" layout-align="end center">
+					<div ng-if="!authenticated">
+						<md-button ng-click="signIn()" class="md-accent">Log in</md-button>
+						<md-button ng-click="signUp()" >Register</md-button>
+					</div>
+					<div ng-if="authenticated">
+						<md-button ng-click="">Welcome {{username}}</md-button>
+					</div>
+				</span>
 			</div>
 		</div>
 
