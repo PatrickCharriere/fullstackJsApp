@@ -29,6 +29,33 @@ angularApp.factory('safeApply', ['$rootScope',function($rootScope) {
 	};
 }]);
 
+app.factory("authenticationSvc", function($http, $q, $window) {
+	var userInfo;
+
+	function login(userName, password) {
+		var deferred = $q.defer();
+
+		$http.post("/api/login", {
+			name: userName,
+			password: password
+		}).then(function(result) {
+			userInfo = {
+				accessToken: result.data.access_token,
+				userName: result.data.userName
+			};
+			$window.sessionStorage["userInfo"] = JSON.stringify(userInfo);
+			deferred.resolve(userInfo);
+		}, function(error) {
+			deferred.reject(error);
+		});
+
+		return deferred.promise;
+	}
+
+	return {
+		login: login
+	};
+});
 
 angularApp.directive('footer', function () {
 	return {
@@ -114,6 +141,11 @@ angularApp.config(function ($routeProvider,$mdThemingProvider,$mdDateLocaleProvi
 		templateUrl: '404.html',
 		controller: 'noFoundCtrl',
 		controllerAs: 'notFound'
+	})
+	.when('/login', {
+		templateUrl: 'login.html',
+		controller: 'logInCtrl',
+		controllerAs: 'login'
 	})
 	.otherwise({
 		redirectTo: '/home'

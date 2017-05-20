@@ -13,7 +13,6 @@ var app 		= express();
 //app.use(express.static(__dirname + "/../public"));
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
-
 //mongoose.connect(dbConfig.local_url);
 app.use(morgan('dev'));
 app.use(passport.initialize());
@@ -38,7 +37,7 @@ apiRoutes.post('/signup', function(req, res) {
 	}
 });
 
-apiRoutes.post('/authenticate', function(req, res) {
+apiRoutes.post('/login', function(req, res) {
 	User.findOne({
 		name: req.body.name
 	}, function(err, user) {
@@ -95,10 +94,10 @@ getToken = function (headers) {
 	}
 };
 
-/*app.get('/', function(req, res) {
-	//res.sendFile();
-});*/
-//app.use('/api', apiRoutes);
+app.get('/', function(req, res) {
+	res.sendFile();
+});
+app.use('/api', apiRoutes);
 
 /************** BLOG CONTROLLER *******************/
 var PostSchema = mongoose.Schema({
@@ -183,11 +182,11 @@ function deletePost(req, res) {
 /************** BLOG CONTROLLER *******************/
 
 
-mongoose.connect(dbConfig.remote_url, function(err){
+mongoose.connect(dbConfig.remote_url, function(error){
 	if(error) console.log(error);
-	console.log("Connection successful");
+	console.log("Connection successful on DB");
 	app.listen(port, function() {
-		console.log('listening o n '+port)	
+		console.log('listening on '+port)	
 	})
 });
 
